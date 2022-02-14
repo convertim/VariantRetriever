@@ -4,26 +4,10 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '5.6'
-        tools: composer:v2
-
-    - name: Validate composer.json and composer.lock
-      run: composer validate
-
-    - name: Install dependencies
-      run: composer update --prefer-dist --no-progress
-
-    - name: Run test suite
-      run: ./vendor/bin/pest
-
-    - name: Run php-cs-fixer
-      run: ./vendor/bin/php-cs-fixer fix
+      - uses: actions/checkout@v2
+      - name: Phing Build
+        uses: phingofficial/phing-github-action@main
+        with:
+          targets: composer-dev linter tests

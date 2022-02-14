@@ -6,15 +6,26 @@ use Travaux\VariantRetriever\Exception\LogicalException;
 
 class Experiment
 {
-    private string $name;
+    /**
+     * @var string
+     */
+    private $name;
 
-    private array $variants;
+    /**
+     * @var \Travaux\VariantRetriever\ValueObject\Variant[]
+     */
+    private $variants;
 
-    public function __construct(string $name, Variant ...$variants)
+    /**
+     * @param string $name
+     * @param \Travaux\VariantRetriever\ValueObject\Variant[] $variants
+     */
+    public function __construct($name, $variants = [])
     {
         if (!empty($variants)) {
             $variantNames = [];
             $totalPercentage = 0;
+
             foreach ($variants as $variant) {
                 if (isset($variantNames[$variant->getName()])) {
                     throw new LogicalException(sprintf('Variant with same name "%s" already added', $variant->getName()));
@@ -22,6 +33,7 @@ class Experiment
                 $variantNames[$variant->getName()] = true;
                 $totalPercentage += $variant->getRollout();
             }
+
             if ($totalPercentage !== 100) {
                 throw new LogicalException(sprintf('Differents variants do not reach 100%% got %d', $totalPercentage));
             }
@@ -31,22 +43,34 @@ class Experiment
         $this->variants = $variants;
     }
 
-    public function getVariants(): array
+    /**
+     * @return \Travaux\VariantRetriever\ValueObject\Variant[]
+     */
+    public function getVariants()
     {
         return $this->variants;
     }
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->toString();
     }
 
-    public function toString(): string
+    /**
+     * @return string
+     */
+    public function toString()
     {
         return $this->name;
     }
 
-    public function __toString(): string
+    /**
+     * @return string
+     */
+    public function __toString()
     {
         return $this->toString();
     }

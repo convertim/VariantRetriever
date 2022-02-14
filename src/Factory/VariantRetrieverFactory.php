@@ -9,15 +9,22 @@ use Travaux\VariantRetriever\ValueObject\Variant;
 
 final class VariantRetrieverFactory
 {
-    public function createVariantRetriever(array ...$experiments): VariantRetrieverInterface
+
+    /**
+     * @param array $experiments
+     * @return \Travaux\VariantRetriever\Retriever\VariantRetriever
+     */
+    public function createVariantRetriever($experiments)
     {
         $variantRetriever = new VariantRetriever();
-        foreach (call_user_func_array('array_merge', $experiments) as $experimentName => $variants) {
-                $experimentVariants = [];
-                foreach (call_user_func_array('array_merge', $variants) as $variantName => $variantRollout) {
-                    $experimentVariants[] = new Variant($variantName, $variantRollout);
-                }
-                $variantRetriever->addExperiment(new Experiment($experimentName, ...$experimentVariants));
+        foreach ($experiments as $experimentName => $variants) {
+            $experimentVariants = [];
+
+            foreach ($variants as $variantName => $variantRollout) {
+                $experimentVariants[] = new Variant($variantName, $variantRollout);
+            }
+
+            $variantRetriever->addExperiment(new Experiment($experimentName, $experimentVariants));
         }
         return $variantRetriever;
     }

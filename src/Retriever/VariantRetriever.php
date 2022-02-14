@@ -8,30 +8,47 @@ use Travaux\VariantRetriever\ValueObject\Variant;
 
 class VariantRetriever implements VariantRetrieverInterface
 {
-    private array $experiments;
+    /**
+     * @var array
+     */
+    private $experiments;
 
-    private array $allocations = [];
+    /**
+     * @var array
+     */
+    private $allocations = [];
 
-    public function addExperiment(Experiment $experiment): self
+    /**
+     * @param \Travaux\VariantRetriever\ValueObject\Experiment $experiment
+     * @return \Travaux\VariantRetriever\Retriever\VariantRetriever
+     */
+    public function addExperiment(Experiment $experiment)
     {
         $this->experiments[$experiment->getName()] = $experiment;
 
         return $this;
     }
 
-    public function getVariantForExperiment(Experiment $experiment, string $userIdentifier): Variant
+    /**
+     * @param \Travaux\VariantRetriever\ValueObject\Experiment $experiment
+     * @param string $userIdentifier
+     * @return \Travaux\VariantRetriever\ValueObject\Variant
+     */
+    public function getVariantForExperiment($experiment, $userIdentifier)
     {
         if (!isset($this->experiments[$experiment->getName()])) {
             throw new LogicalException(sprintf('Experiment %s do not exist', $experiment->getName()));
         }
 
-        $variants = $this->experiments[$experiment->getName()]->getVariants();
         $this->createVariantAllocation($this->experiments[$experiment->getName()]);
 
         return $this->allocations[$experiment->getName()][$this->getUserIdentifierAffectation($experiment->getName(), $userIdentifier)];
     }
 
-    private function createVariantAllocation(Experiment $experiment): void
+    /**
+     * @param \Travaux\VariantRetriever\ValueObject\Experiment$experiment
+     */
+    private function createVariantAllocation($experiment)
     {
         $this->allocations[$experiment->getName()] = [];
         $variants = $experiment->getVariants();
@@ -40,7 +57,12 @@ class VariantRetriever implements VariantRetrieverInterface
         }
     }
 
-    private function getUserIdentifierAffectation(string $experimentName, string $userIdentifier): int
+    /**
+     * @param string $experimentName
+     * @param string $userIdentifier
+     * @return int
+     */
+    private function getUserIdentifierAffectation($experimentName, $userIdentifier)
     {
         return (int)substr((string)crc32((string)$experimentName . $userIdentifier), -2, 2);
     }

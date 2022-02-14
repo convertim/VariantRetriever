@@ -4,32 +4,54 @@ namespace Travaux\VariantRetriever\ValueObject;
 
 class Variant
 {
-    private string $name;
+    /**
+     * @var string
+     */
+    private $name;
 
-    private int $rollout;
+    /**
+     * @var int
+     */
+    private $rollout;
 
-    public function __construct(string $name, int $rollout = 50)
+    /**
+     * @param string $name
+     * @param int $rollout
+     */
+    public function __construct($name, $rollout = 50)
     {
         $this->name = $name;
         $this->rollout = $rollout;
     }
 
-    public function getName(): string
+    /**
+     * @return string
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function getRollout(): int
+    /**
+     * @return int
+     */
+    public function getRollout()
     {
         return $this->rollout;
     }
 
-    public function toString(): string
+    /**
+     * @return string
+     */
+    public function toString()
     {
         return $this->name;
     }
 
-    public function __toString(): string
+    /**
+     * @return string
+     */
+    public function __toString()
     {
         return $this->toString();
     }
