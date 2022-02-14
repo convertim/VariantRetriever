@@ -1,9 +1,4 @@
-<p align="center">
-    <h1 align="center">
-        VariantRetriever
-    </h1>
-</p>
-<br>
+# VariantRetriever
 
 VariantRetriever is a minimalist package for feature flagging. It's fast, database free and idempotent library to choose over a set of variants.
 
