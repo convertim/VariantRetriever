@@ -24,13 +24,13 @@ var_dump((string) $affectedVariant); // string(7) "variant2"
 VariantRetriever uses [Pest PHP](https://pestphp.com) as testing framework. Once you have all dependencies installed via `composer install`, you can run the test suite with:
 
 ```bash
-./vendor/bin/pest
+.php phing tests
 ```
 
 To obtain the code coverage report, you'll need to have `xdebug` installed. Then, you can run:
 
 ```bash
-./vendor/bin/pest --coverage
+.php phing tests-coverage
 ```
 
 And this will give you detailed information about code coverage.

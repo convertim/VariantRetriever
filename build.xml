@@ -71,5 +71,12 @@
         </exec>
     </target>
 
+    <target name="tests-coverage" description="Run unit test">
+        <exec executable="${path.phpunit.executable}" logoutput="true" passthru="true" checkreturn="true">
+            <arg path="--coverage-html"/>
+            <arg path="tests"/>
+        </exec>
+    </target>
+
     <target name="tests" depends="test-unit" description="Run all test"/>
 </project>
