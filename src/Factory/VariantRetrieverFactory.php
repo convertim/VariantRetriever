@@ -20,7 +20,7 @@ final class VariantRetrieverFactory
         foreach ($experiments as $experimentName => $variants) {
             $experimentVariants = [];
 
-            foreach ($variants as $variantName => $variantRollout) {
+            foreach (array_reduce($variants, 'array_merge', []) as $variantName => $variantRollout) {
                 $experimentVariants[] = new Variant($variantName, $variantRollout);
             }
 

@@ -18,8 +18,8 @@ class FactoryTest extends TestCase
 
         $configuration = [
             Helpers::DEFAULT_EXPERIMENT_NAME => [
-                'control' => 50,
-                'variant' => 50
+                ['control' => 70],
+                ['variant' => 30]
             ]
         ];
 
@@ -28,8 +28,8 @@ class FactoryTest extends TestCase
             new Experiment(
                 Helpers::DEFAULT_EXPERIMENT_NAME,
                 [
-                    new Variant('control'),
-                    new Variant('variant'),
+                    new Variant('control', 70),
+                    new Variant('variant', 30),
                 ]
             )
         );
