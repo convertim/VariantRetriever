@@ -1,6 +1,6 @@
 <?php
 
-namespace Travaux\VariantRetriever\Exception;
+namespace Convertim\VariantRetriever\Exception;
 
 use LogicException;
 

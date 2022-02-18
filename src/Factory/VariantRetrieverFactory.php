@@ -1,18 +1,17 @@
 <?php
 
-namespace Travaux\VariantRetriever\Factory;
+namespace Convertim\VariantRetriever\Factory;
 
-use Travaux\VariantRetriever\Retriever\VariantRetriever;
-use Travaux\VariantRetriever\Retriever\VariantRetrieverInterface;
-use Travaux\VariantRetriever\ValueObject\Experiment;
-use Travaux\VariantRetriever\ValueObject\Variant;
+use Convertim\VariantRetriever\Retriever\VariantRetriever;
+use Convertim\VariantRetriever\ValueObject\Experiment;
+use Convertim\VariantRetriever\ValueObject\Variant;
 
 final class VariantRetrieverFactory
 {
 
     /**
      * @param array $experiments
-     * @return \Travaux\VariantRetriever\Retriever\VariantRetriever
+     * @return \Convertim\VariantRetriever\Retriever\VariantRetriever
      */
     public function createVariantRetriever($experiments)
     {

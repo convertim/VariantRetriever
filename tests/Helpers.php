@@ -1,10 +1,10 @@
 <?php
 
-namespace Travaux\VariantRetriever\Tests;
+namespace Convertim\VariantRetriever\Tests;
 
-use Travaux\VariantRetriever\Retriever\VariantRetriever;
-use Travaux\VariantRetriever\ValueObject\Experiment;
-use Travaux\VariantRetriever\ValueObject\Variant;
+use Convertim\VariantRetriever\Retriever\VariantRetriever;
+use Convertim\VariantRetriever\ValueObject\Experiment;
+use Convertim\VariantRetriever\ValueObject\Variant;
 
 class Helpers
 {

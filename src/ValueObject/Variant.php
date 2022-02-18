@@ -1,6 +1,6 @@
 <?php
 
-namespace Travaux\VariantRetriever\ValueObject;
+namespace Convertim\VariantRetriever\ValueObject;
 
 class Variant
 {

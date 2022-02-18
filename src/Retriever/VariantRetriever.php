@@ -1,10 +1,9 @@
 <?php
 
-namespace Travaux\VariantRetriever\Retriever;
+namespace Convertim\VariantRetriever\Retriever;
 
-use Travaux\VariantRetriever\Exception\LogicalException;
-use Travaux\VariantRetriever\ValueObject\Experiment;
-use Travaux\VariantRetriever\ValueObject\Variant;
+use Convertim\VariantRetriever\Exception\LogicalException;
+use Convertim\VariantRetriever\ValueObject\Experiment;
 
 class VariantRetriever implements VariantRetrieverInterface
 {
@@ -19,8 +18,8 @@ class VariantRetriever implements VariantRetrieverInterface
     private $allocations = [];
 
     /**
-     * @param \Travaux\VariantRetriever\ValueObject\Experiment $experiment
-     * @return \Travaux\VariantRetriever\Retriever\VariantRetriever
+     * @param \Convertim\VariantRetriever\ValueObject\Experiment $experiment
+     * @return \Convertim\VariantRetriever\Retriever\VariantRetriever
      */
     public function addExperiment(Experiment $experiment)
     {
@@ -30,9 +29,9 @@ class VariantRetriever implements VariantRetrieverInterface
     }
 
     /**
-     * @param \Travaux\VariantRetriever\ValueObject\Experiment $experiment
+     * @param \Convertim\VariantRetriever\ValueObject\Experiment $experiment
      * @param string $userIdentifier
-     * @return \Travaux\VariantRetriever\ValueObject\Variant
+     * @return \Convertim\VariantRetriever\ValueObject\Variant
      */
     public function getVariantForExperiment($experiment, $userIdentifier)
     {
@@ -46,7 +45,7 @@ class VariantRetriever implements VariantRetrieverInterface
     }
 
     /**
-     * @param \Travaux\VariantRetriever\ValueObject\Experiment$experiment
+     * @param \Convertim\VariantRetriever\ValueObject\Experiment$experiment
      */
     private function createVariantAllocation($experiment)
     {

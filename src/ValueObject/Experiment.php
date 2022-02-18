@@ -1,8 +1,8 @@
 <?php
 
-namespace Travaux\VariantRetriever\ValueObject;
+namespace Convertim\VariantRetriever\ValueObject;
 
-use Travaux\VariantRetriever\Exception\LogicalException;
+use Convertim\VariantRetriever\Exception\LogicalException;
 
 class Experiment
 {
@@ -12,13 +12,13 @@ class Experiment
     private $name;
 
     /**
-     * @var \Travaux\VariantRetriever\ValueObject\Variant[]
+     * @var \Convertim\VariantRetriever\ValueObject\Variant[]
      */
     private $variants;
 
     /**
      * @param string $name
-     * @param \Travaux\VariantRetriever\ValueObject\Variant[] $variants
+     * @param \Convertim\VariantRetriever\ValueObject\Variant[] $variants
      */
     public function __construct($name, $variants = [])
     {
@@ -44,7 +44,7 @@ class Experiment
     }
 
     /**
-     * @return \Travaux\VariantRetriever\ValueObject\Variant[]
+     * @return \Convertim\VariantRetriever\ValueObject\Variant[]
      */
     public function getVariants()
     {

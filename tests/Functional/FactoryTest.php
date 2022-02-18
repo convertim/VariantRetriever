@@ -1,13 +1,13 @@
 <?php
 
-namespace Travaux\VariantRetriever\Tests\Functional;
+namespace Convertim\VariantRetriever\Tests\Functional;
 
 use PHPUnit\Framework\TestCase;
-use Travaux\VariantRetriever\Factory\VariantRetrieverFactory;
-use Travaux\VariantRetriever\Retriever\VariantRetriever;
-use Travaux\VariantRetriever\Tests\Helpers;
-use Travaux\VariantRetriever\ValueObject\Experiment;
-use Travaux\VariantRetriever\ValueObject\Variant;
+use Convertim\VariantRetriever\Factory\VariantRetrieverFactory;
+use Convertim\VariantRetriever\Retriever\VariantRetriever;
+use Convertim\VariantRetriever\Tests\Helpers;
+use Convertim\VariantRetriever\ValueObject\Experiment;
+use Convertim\VariantRetriever\ValueObject\Variant;
 
 class FactoryTest extends TestCase
 {

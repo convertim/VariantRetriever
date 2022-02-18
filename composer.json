@@ -28,11 +28,11 @@
         "sort-packages": true
     },
     "autoload": {
-        "psr-4": { "Travaux\\VariantRetriever\\": "src/" }
+        "psr-4": { "Convertim\\VariantRetriever\\": "src/" }
     },
     "autoload-dev": {
         "psr-4": {
-            "Travaux\\VariantRetriever\\Tests\\": "tests/"
+            "Convertim\\VariantRetriever\\Tests\\": "tests/"
         }
     }
 }
